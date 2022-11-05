@@ -12,7 +12,7 @@
 	<artifactId>cms</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>cms</name>
-	<description>Basic CMS funcionalities for the web page</description>
+	<description>Basic CMS functionalities for the web page</description>
 	<properties>
 		<java.version>19</java.version>
 	</properties>

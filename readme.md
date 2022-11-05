@@ -1,0 +1,1 @@
+Basic CMS functionalities for the del-heves.hu web page. 
