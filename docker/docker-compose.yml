@@ -2,13 +2,13 @@ version: '3.9'
 
 services:
   dhte-database:
-    image: postgis:15-3.3-alpine
+    image: postgis/postgis:15-3.3-alpine
     container_name: dhte-database
-    restart: no
+    restart: "no"
     ports:
       - "5432:5432"
     volumes:
-      - ./init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
+      - ./init-cms-db.sh:/docker-entrypoint-initdb.d/init-cms-db.sh
       - ./data/db:/var/lib/postgresql/data/pgdata
     environment:
       PGDATA: /var/lib/postgresql/data/pgdata
