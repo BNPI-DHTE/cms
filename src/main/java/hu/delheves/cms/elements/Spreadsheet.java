@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -16,12 +17,16 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "images")
+@Table(name = "spreadsheets")
 @PrimaryKeyJoinColumn(name = "element_id")
-public class Image extends Element {
+public class Spreadsheet extends Element {
 
-    @ManyToMany(mappedBy = "images")
+    @ManyToMany(mappedBy = "spreadsheets")
     private Set<Author> authors;
 
     private String description;
+
+    private String header;
+
+    private List<String> rows;
 }

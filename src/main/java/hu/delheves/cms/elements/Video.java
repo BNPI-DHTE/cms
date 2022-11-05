@@ -1,5 +1,9 @@
 package hu.delheves.cms.elements;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.PrimaryKeyJoinColumn;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,15 +15,13 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Video implements Element {
+@Entity
+@Table(name = "videos")
+@PrimaryKeyJoinColumn(name = "element_id")
+public class Video extends Element {
 
-    private Long id;
-
+    @ManyToMany(mappedBy = "videos")
     private Set<Author> authors;
 
     private String description;
-
-    private Article article;
-
-    private int rank;
 }

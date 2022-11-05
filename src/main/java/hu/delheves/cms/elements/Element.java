@@ -1,16 +1,30 @@
 package hu.delheves.cms.elements;
 
-import java.util.Set;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-public interface Element {
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "elements")
+public abstract class Element {
 
-    Long getId();
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    Set<Author> getAuthors();
+    @ManyToOne
+    @JoinColumn(name = "article_id")
+    private Article article;
 
-    String getDescription();
+    private int rank;
 
-    Article getArticle();
-
-    int getRank();
+    //TODO Must implement this method in every child class
+//    public abstract String createHtml();
 }
